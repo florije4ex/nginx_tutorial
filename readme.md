@@ -5,3 +5,5 @@ set local hosts:
 
 curl http://proxy.com:8888/name/cp
 will call server api: /cp
+
+todo: will add rewrite rules.
