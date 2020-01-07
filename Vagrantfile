@@ -76,5 +76,6 @@ Vagrant.configure("2") do |config|
     cp /vagrant/proxy.conf /etc/nginx/sites-available/proxy.conf
     ln -sf /etc/nginx/sites-available/proxy.conf /etc/nginx/sites-enabled/proxy.conf
     service nginx reload
+    service nginx status
   SHELL
 end
