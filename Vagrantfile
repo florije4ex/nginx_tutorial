@@ -65,11 +65,16 @@ Vagrant.configure("2") do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
-    apt-get install -y python-pip nginx
+    apt-get install -y nginx supervisor python-pip
+    pip install flask
+
+    cp /vagrant/server.conf /etc/supervisor/conf.d/
+    supervisorctl reread
+    supervisorctl update
+    supervisorctl status
+
     cp /vagrant/proxy.conf /etc/nginx/sites-available/proxy.conf
     ln -sf /etc/nginx/sites-available/proxy.conf /etc/nginx/sites-enabled/proxy.conf
     service nginx reload
-    pip install flask
-    nohup python /vagrant/server.py &
   SHELL
 end
