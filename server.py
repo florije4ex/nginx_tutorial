@@ -3,7 +3,6 @@
 
 """
 Created by florije4ex / florije4ex@gmail.com at 2020/1/7.
-Copyright to BIXIN GLOBAL Co.,Ltd.
 """
 
 from flask import Flask, request
